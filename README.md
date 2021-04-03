@@ -15,13 +15,17 @@ Repositorio de la prueba individual.
 Clonar el repositorio.
 `git clone repo`
 
+
 Instalar dependencias.
 `npm install`
+
 
 Iniciar el proyecto.
 
 Producción: `npm run start`
+
 Desarrollo: `npm run dev`
+
 Test: `npm run test`
 
 ## Users
