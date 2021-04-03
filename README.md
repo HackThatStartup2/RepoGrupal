@@ -11,6 +11,7 @@ Repositorio de la prueba individual.
 * [Neas](#neas)
   * [Model](#model)
   * [Rutas](#rutas)
+* [Auth](#auth)
 ## Uso
 Clonar el repositorio.
 `git clone repo`
@@ -68,3 +69,9 @@ Atributos:
 * Nuevo Nea: POST /api/nea/:id
 * Actualizar Nea: PUT /api/nea/:id
 * Borrar Nea: DELETE /api/nea/:id
+
+## Auth
+
+La autentificación se realiza mediante Passport y JWT. En las rutas protegidas, el Authorization header con un token tipo Bearer es requerido para acceder.
+
+De momento, el uso de sesiones se ha ignorado a causa de la ausencia del uso de las rutas protegidas.
