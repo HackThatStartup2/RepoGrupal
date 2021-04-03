@@ -6,11 +6,11 @@ Repositorio de la prueba individual.
 
 * [Uso](#uso)
 * [Users](#users)
- * [Model](#model)
- * [Rutas](#rutas)
+  * [Model](#model)
+  * [Rutas](#rutas)
 * [Neas](#neas)
- * [Model](#model)
- * [Rutas](#rutas)
+  * [Model](#model)
+  * [Rutas](#rutas)
 ## Uso
 Clonar el repositorio.
 `git clone repo`
