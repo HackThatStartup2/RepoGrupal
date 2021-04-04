@@ -1,5 +1,3 @@
-import { IUser } from './../../api/User/model';
-import { INea } from './../../api/Nea/model';
 import { checkArray } from '../../helpers';
 
 
