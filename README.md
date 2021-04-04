@@ -2,6 +2,8 @@
 
 Repositorio de la prueba grupal.
 
+[Postman](https://www.getpostman.com/collections/4c3b2fc24d713928494b)
+
 ## Tabla de contenido
 
 * [Uso](#uso)
