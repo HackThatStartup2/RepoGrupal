@@ -6,7 +6,7 @@ import './services/db/mongo';
 import routes from './routes';
 import helmet from 'helmet';
 import passport from 'passport'
-import jwtStrategy from './services/passport'
+import jwtStrategy, { githubStrategy } from './services/passport'
 
 const app = express();
 app.get('/', (req, res) => {
@@ -20,6 +20,7 @@ app.use(helmet());
 
 app.use(passport.initialize());
 passport.use(jwtStrategy);
+passport.use(githubStrategy);
 
 app.use(express.urlencoded({ extended: true }));
 app.use('/api', routes)

@@ -18,6 +18,19 @@ router.get('/protected', passport.authenticate('jwt', { session: false }), (req:
     res.send('This is a protected route for test');
 })
 
+//Auth routes
+router.get('/auth/github', passport.authenticate('github', { scope: ['user:email'] }));
+router.get('/auth/github/callback', passport.authenticate('github', { failureRedirect: '/api/failure' }), function (req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/api/failure');
+});
+
+router.get('/api/filure', (req, res) => {
+    res.send('FAIL AUTHETICATION');
+});
+
+
+
 router.use('/nea', neaRoutes);
 router.use('/user', userRoutes);
 router.use('/pha', phaRoutes)
