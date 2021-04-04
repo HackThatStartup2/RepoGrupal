@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import to from 'await-to-js';
 import Client, { IClient } from './model';
 import { checkArray } from "../../helpers";
-import { addMany, addOne } from "../../helpers/addHandlers";
+import { addManyClient, addOneClient } from "./utils/addClient";
 
 export const findAll = async (req: Request, res: Response) => {
     const [err, client] = await to(Client.find({}).exec());
@@ -25,7 +25,7 @@ export const findOne = async (req: Request, res: Response) => {
 export const addList = async (req: Request, res: Response) => {
     const body: IClient | IClient[] = req.body;
 
-    const [err, isAdded] = await to(checkArray(body) ? addMany(Client, body) : addOne(Client, body));
+    const [err, isAdded] = await to(checkArray(body) ? addManyClient(Client, body) : addOneClient(Client, body));
     if (err || !isAdded)
         res.status(500).json({ err: err || isAdded })
 

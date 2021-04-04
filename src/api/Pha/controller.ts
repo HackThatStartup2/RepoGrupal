@@ -2,8 +2,7 @@ import { Request, Response } from "express";
 import to from 'await-to-js';
 import Pha, { IPha } from './model';
 import { checkArray } from "../../helpers";
-import { addMany, addOne } from "../../helpers/addHandlers";
-import { addOnePha } from "./utils/addPha";
+import { addManyPha, addOnePha } from "./utils/addPha";
 
 export const findAll = async (req: Request, res: Response) => {
     const [err, phas] = await to(Pha.find({}).exec());
@@ -26,7 +25,7 @@ export const findOne = async (req: Request, res: Response) => {
 export const addList = async (req: Request, res: Response) => {
     const body: IPha | IPha[] = req.body;
 
-    const [err, isAdded] = await to(checkArray(body) ? addMany(Pha, body) : addOnePha(Pha, body));
+    const [err, isAdded] = await to(checkArray(body) ? addManyPha(Pha, body) : addOnePha(Pha, body));
     if (err || !isAdded)
         res.status(500).json({ err: err || isAdded })
 

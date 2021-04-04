@@ -4,7 +4,7 @@ import { getPhaLatLng } from "../../../helpers/kepler";
 import { IPha } from "../model";
 
 export const addOnePha = async (model, data) => {
-    const newPha: IPha = new model(data)
+    const newPha: IPha = await new model(data)
     const latlng = getPhaLatLng(newPha)
 
     newPha.latitude = latlng.lat;
@@ -16,14 +16,14 @@ export const addOnePha = async (model, data) => {
 }
 
 export const addManyPha = async (model, data) => {
-
+    
     const transactSession = await startSession();
-
+    
     const [err, instance] = await to(transactSession.withTransaction(async () => {
         data.forEach(async doc => {
-            const newPha: IPha = new model(doc)
+            const newPha: IPha = await new model(doc)
             const latlng = getPhaLatLng(newPha)
-
+            
             newPha.latitude = latlng.lat;
             newPha.longitude = latlng.long;
 
