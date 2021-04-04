@@ -1,6 +1,6 @@
 # Hack That Startup V2
 
-Repositorio de la prueba individual.
+Repositorio de la prueba grupal.
 
 ## Tabla de contenido
 
@@ -9,6 +9,12 @@ Repositorio de la prueba individual.
   * [Model](#model)
   * [Rutas](#rutas)
 * [Neas](#neas)
+  * [Model](#model)
+  * [Rutas](#rutas)
+* [Phas](#phas)
+  * [Model](#model)
+  * [Rutas](#rutas)
+* [Clients](#clients)
   * [Model](#model)
   * [Rutas](#rutas)
 * [Auth](#auth)
@@ -69,6 +75,52 @@ Atributos:
 * Nuevo Nea: POST /api/nea/:id
 * Actualizar Nea: PUT /api/nea/:id
 * Borrar Nea: DELETE /api/nea/:id
+
+## Phas
+
+### Model
+
+Atributos: 
+
+* full_name
+* a
+* e
+* i
+* om
+* w
+* ma
+* latitude
+* longitude
+
+### Rutas
+
+* Ver todos los Pha: GET /api/pha/all
+* Ver un Pha por id: GET /api/pha/:id
+* Nuevo Pha: POST /api/pha/:id
+* Actualizar Pha: PUT /api/pha/:id
+* Borrar Pha: DELETE /api/pha/:id
+
+## Clients
+
+### Model
+
+Atributos: 
+
+* Name
+* Lastname
+* Age
+* Latitude
+* Longitude
+* Hotspot_asteroids
+* Price
+
+### Rutas
+
+* Ver todos los Clientes: GET /api/client/all
+* Ver un Cliente por id: GET /api/client/:id
+* Nuevo Cliente: POST /api/client/:id
+* Actualizar Cliente: PUT /api/client/:id
+* Borrar Cliente: DELETE /api/client/:id
 
 ## Auth
 
