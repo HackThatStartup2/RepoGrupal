@@ -18,6 +18,8 @@ router.get('/protected', passport.authenticate('jwt', { session: false }), (req:
     res.send('This is a protected route for test');
 })
 
+
+
 router.use('/nea', neaRoutes);
 router.use('/user', userRoutes);
 router.use('/pha', phaRoutes)
