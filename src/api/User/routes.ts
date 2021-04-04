@@ -1,20 +1,21 @@
 import { Router } from "express";
-import { findAll, addList, findOne, updateOne, deleteOne } from './controller';
+import { findAll, addList, findOne, updateOne, deleteOne } from "./controller";
 import { login, register } from "./utils/auth";
+import handleError from "./middlewares/handleErrors";
 
 const router = Router();
 
-router.get('/all', findAll);
-router.get('/:id', findOne);
+router.get("/all", findAll);
+router.get("/:id", findOne);
 
-router.post('/', addList)
+router.post("/", addList);
 
-router.put('/:id', updateOne)
+router.put("/:id", updateOne);
 
-router.delete('/:id', deleteOne)
+router.delete("/:id", deleteOne);
 
-router.post('/login', login)
-router.post('/register', register)
+router.post("/login", login);
+router.post("/register", register);
 
 export default router;
 
