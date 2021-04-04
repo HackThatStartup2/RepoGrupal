@@ -7,6 +7,14 @@ export const addOnePha = async (model, data) => {
     const newPha: IPha = await new model(data)
     const latlng = getPhaLatLng(newPha)
 
+    if (latlng.lat > 90) {
+        latlng.lat -= 300;
+    }
+
+    if (latlng.long > 180 || latlng.long < -180) {
+        latlng.long -= 100;
+    }
+
     newPha.latitude = latlng.lat;
     newPha.longitude = latlng.long;
 
@@ -16,14 +24,24 @@ export const addOnePha = async (model, data) => {
 }
 
 export const addManyPha = async (model, data) => {
-    
+
     const transactSession = await startSession();
-    
+
     const [err, instance] = await to(transactSession.withTransaction(async () => {
         data.forEach(async doc => {
             const newPha: IPha = await new model(doc)
             const latlng = getPhaLatLng(newPha)
-            
+
+            // Keep range -90, +90
+            if (latlng.lat > 90) {
+                latlng.lat -= 300;
+            }
+
+            // Keep range -180, +180
+            if (latlng.long > 180 || latlng.long < -180) {
+                latlng.long -= 100;
+            }
+
             newPha.latitude = latlng.lat;
             newPha.longitude = latlng.long;
 
