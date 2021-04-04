@@ -8,8 +8,8 @@ export interface IPha extends Document {
     om: number,
     w: number,
     ma: number,
-    Latitude: number,
-    Longitude: number,
+    latitude: number,
+    longitude: number,
 }
 
 const phaSchema = new Schema({
@@ -20,8 +20,8 @@ const phaSchema = new Schema({
     om: { type: Number, required: true },
     w: { type: Number, required: true },
     ma: { type: Number, required: true },
-    Latitude: { type: Number, required: false },
-    Longitude: { type: Number, required: false },
+    latitude: { type: Number, required: false },
+    longitude: { type: Number, required: false },
 }, { timestamps: true })
 
 export default model<IPha>("Pha", phaSchema);
